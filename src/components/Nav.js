@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state";
+import logo from "../images/f.svg";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -9,10 +10,10 @@ const Nav = () => {
   const { setDarkMode } = bindActionCreators(actionCreators, dispatch);
 
   return (
-    <div class="container">
-      <nav className="flex-space">
-        <h1>Frivix</h1>
-        <ul class="flex">
+    <nav className="nav flex my-1">
+      <div class="container flex-space ">
+        <img src={logo}></img>
+        <ul class="flex gap">
           <li>
             <a>Home</a>
           </li>
@@ -20,14 +21,14 @@ const Nav = () => {
             <a>Categories</a>
           </li>
           <li>
-            <a onClick={() => setDarkMode(true)}>Darkmode</a>
+            <a className="btn btn-light">Login</a>
           </li>
           <li>
-            <a>Login</a>
+            <a className="btn">Sign Up</a>
           </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 

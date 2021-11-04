@@ -3,10 +3,32 @@
   padding: 0;
 }
 
+body {
+  font-family: Montserrat;
+  color: white;
+}
+
+.hero * :not(.bg-1, .bg-2, ) {
+  animation: slideUp 700ms;
+}
+
+.nav * {
+  transition: ease;
+  animation: slideDown 500ms;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 a,
 li {
   text-decoration: none;
   list-style: none;
+}
+
+.gap {
+  gap: 30px;
 }
 
 .flex {
@@ -26,6 +48,12 @@ li {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -69,4 +97,55 @@ li {
 }
 .py-3 {
   padding: 3rem 0;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+  background: linear-gradient(white, $Secondary-color);
+  background-position: left;
+  background-size: 300%;
+  transition: 300ms;
+}
+
+.btn:hover {
+  background-color: rgb(187, 187, 187);
+  cursor: pointer;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-light {
+  padding: 15px;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  transition: 300ms;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 import Nav from "./components/Nav";
+import Hero from "./components/hero";
 
 function App() {
   const darkmode = useSelector((state) => state.darkMode);
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <Hero />
     </div>
   );
 }

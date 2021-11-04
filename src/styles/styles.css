@@ -1,12 +1,125 @@
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes bg-animate-hover {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+@keyframes bg-animate-hover {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Montserrat;
+  color: white;
+}
+
+.hero * :not(.bg-1, .bg-2) {
+  -webkit-animation: slideUp 700ms;
+          animation: slideUp 700ms;
+}
+
+.nav * {
+  -webkit-transition: ease;
+  transition: ease;
+  -webkit-animation: slideDown 500ms;
+          animation: slideDown 500ms;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 a,
 li {
   text-decoration: none;
   list-style: none;
+}
+
+.gap {
+  gap: 30px;
 }
 
 .flex {
@@ -47,6 +160,18 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container {
@@ -100,5 +225,136 @@ li {
 
 .py-3 {
   padding: 3rem 0;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#80bcc9));
+  background: linear-gradient(white, #80bcc9);
+  background-position: left;
+  background-size: 300%;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.btn:hover {
+  background-color: #bbbbbb;
+  cursor: pointer;
+}
+
+.btn:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.btn-light {
+  padding: 15px;
+  border-radius: 15px;
+  color: black;
+  background-color: white;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.nav {
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav ul {
+  gap: 50px;
+}
+
+.nav a {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.nav .btn {
+  border-radius: 30px;
+  padding: 20px 30px;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+}
+
+.hero h1 {
+  color: white;
+  font-weight: 2900;
+}
+
+.hero p {
+  color: #dadada;
+}
+
+.hero .gap {
+  gap: 20px;
+}
+
+.hero .btn {
+  width: 40%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.hero .bg-1 {
+  position: absolute;
+  z-index: -100;
+  top: -130px;
+}
+
+.hero .bg-2 {
+  position: absolute;
+  z-index: -101;
+  top: -140px;
+}
+
+.hero .grid {
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.hero .img {
+  height: 600px;
+  width: 600px;
 }
 /*# sourceMappingURL=styles.css.map */
