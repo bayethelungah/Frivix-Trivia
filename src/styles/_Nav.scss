@@ -3,17 +3,26 @@
   justify-content: center;
   align-items: center;
   background: transparent;
+  height: 110px;
   width: 100%;
   z-index: 100;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+  .container {
+    width: 1200px;
+  }
   ul {
-    gap: 50px;
+    gap: 40px;
   }
   a {
     font-size: 18px;
     font-weight: bolder;
   }
   .btn {
-    border-radius: 30px;
-    padding: 20px 30px;
+    border-radius: 20px;
+    padding: 10px 20px;
+  }
+
+  img {
+    margin-top: 20px;
   }
 }

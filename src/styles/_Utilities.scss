@@ -5,11 +5,16 @@
 
 body {
   font-family: Montserrat;
-  color: white;
+  color: $text-color;
 }
 
-.hero * :not(.bg-1, .bg-2, ) {
+.hero * :not(.bg-1, .bg-2, .container :nth-child(2), .svg-container *) {
   animation: slideUp 700ms;
+}
+
+.container :nth-child(2),
+.svg-container * {
+  animation: fadeIn 1s;
 }
 
 .nav * {
@@ -17,14 +22,12 @@ body {
   animation: slideDown 500ms;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
 a,
 li {
   text-decoration: none;
   list-style: none;
+  transition: 300ms;
+  scale: 1;
 }
 
 .gap {
@@ -57,8 +60,10 @@ li {
 }
 
 .container {
-  margin: auto;
   width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
 }
 
 .m-1 {
@@ -117,17 +122,24 @@ li {
 
 .btn {
   padding: 15px;
+  border: transparent 2px solid;
   border-radius: 15px;
   color: white;
-  background: linear-gradient(white, $Secondary-color);
-  background-position: left;
-  background-size: 300%;
+  background-color: $Secondary-color;
   transition: 300ms;
 }
 
+.card {
+  background-color: white;
+}
+
 .btn:hover {
-  background-color: rgb(187, 187, 187);
+  background-color: darken($color: $Secondary-color, $amount: 20);
   cursor: pointer;
+}
+.btn-light:hover {
+  background-color: darken($color: white, $amount: 30);
+  color: rgb(0, 0, 0);
 }
 .btn:active {
   transform: scale(0.98);
@@ -148,4 +160,16 @@ li {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+section {
+  height: 100vh;
+}
+.scrolled {
+  background-color: white;
+  color: black;
+  box-shadow: rgb(153, 153, 153) 0 2px 15px 0;
+  .btn-light {
+    border: 2px solid black;
+  }
 }

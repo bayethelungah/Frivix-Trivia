@@ -3,9 +3,9 @@ import heroImage from "../images/Main.svg";
 import backgroundImage1 from "../images/BG.svg";
 import backgroundImage2 from "../images/BG2.svg";
 
-const hero = () => {
+const hero = (props) => {
   return (
-    <div className="hero  flex-center">
+    <div className="hero  flex-center" ref={props.targetRef}>
       <div className="container grid">
         <div className="flex-column gap">
           <h1 className="xl">Become A Trivia Master</h1>
@@ -13,9 +13,9 @@ const hero = () => {
             Sharpen your skills or learn something new with thousands of
             questions and many categories to chose from.
           </p>
-          <a className="btn text-center">Start Now</a>
+          <a className="btn text-center">Play Now</a>
         </div>
-        <div className="flex svg">
+        <div className="flex svg-container">
           <svg
             className="svg"
             width="590"

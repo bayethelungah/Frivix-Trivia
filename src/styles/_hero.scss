@@ -1,9 +1,7 @@
 .hero {
   height: 100vh;
   width: 100vw;
-
   h1 {
-    color: white;
     font-weight: 2900;
   }
 
@@ -13,6 +11,7 @@
 
   .gap {
     gap: 20px;
+    width: 500px;
   }
 
   .btn {

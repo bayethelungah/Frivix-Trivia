@@ -70,19 +70,19 @@
 
 @-webkit-keyframes bg-animate-hover {
   0% {
-    background-position: left;
+    background-position: right;
   }
   100% {
-    background-position: right;
+    background-position: left;
   }
 }
 
 @keyframes bg-animate-hover {
   0% {
-    background-position: left;
+    background-position: right;
   }
   100% {
-    background-position: right;
+    background-position: left;
   }
 }
 
@@ -96,9 +96,15 @@ body {
   color: white;
 }
 
-.hero * :not(.bg-1, .bg-2) {
+.hero * :not(.bg-1, .bg-2, .container :nth-child(2), .svg-container *) {
   -webkit-animation: slideUp 700ms;
           animation: slideUp 700ms;
+}
+
+.container :nth-child(2),
+.svg-container * {
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
 }
 
 .nav * {
@@ -108,14 +114,13 @@ body {
           animation: slideDown 500ms;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
 a,
 li {
   text-decoration: none;
   list-style: none;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  scale: 1;
 }
 
 .gap {
@@ -175,8 +180,10 @@ li {
 }
 
 .container {
-  margin: auto;
   width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
 }
 
 .m-1 {
@@ -245,19 +252,26 @@ li {
 
 .btn {
   padding: 15px;
+  border: transparent 2px solid;
   border-radius: 15px;
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#80bcc9));
-  background: linear-gradient(white, #80bcc9);
-  background-position: left;
-  background-size: 300%;
+  background-color: #80bcc9;
   -webkit-transition: 300ms;
   transition: 300ms;
 }
 
+.card {
+  background-color: white;
+}
+
 .btn:hover {
-  background-color: #bbbbbb;
+  background-color: #448f9f;
   cursor: pointer;
+}
+
+.btn-light:hover {
+  background-color: #b3b3b3;
+  color: black;
 }
 
 .btn:active {
@@ -285,6 +299,21 @@ li {
       grid-template-columns: repeat(2, 1fr);
 }
 
+section {
+  height: 100vh;
+}
+
+.scrolled {
+  background-color: white;
+  color: black;
+  -webkit-box-shadow: #999999 0 2px 15px 0;
+          box-shadow: #999999 0 2px 15px 0;
+}
+
+.scrolled .btn-light {
+  border: 2px solid black;
+}
+
 .nav {
   position: fixed;
   -webkit-box-pack: center;
@@ -294,12 +323,19 @@ li {
       -ms-flex-align: center;
           align-items: center;
   background: transparent;
+  height: 110px;
   width: 100%;
   z-index: 100;
+  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+}
+
+.nav .container {
+  width: 1200px;
 }
 
 .nav ul {
-  gap: 50px;
+  gap: 40px;
 }
 
 .nav a {
@@ -308,8 +344,12 @@ li {
 }
 
 .nav .btn {
-  border-radius: 30px;
-  padding: 20px 30px;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.nav img {
+  margin-top: 20px;
 }
 
 .hero {
@@ -318,7 +358,6 @@ li {
 }
 
 .hero h1 {
-  color: white;
   font-weight: 2900;
 }
 
@@ -328,6 +367,7 @@ li {
 
 .hero .gap {
   gap: 20px;
+  width: 500px;
 }
 
 .hero .btn {
