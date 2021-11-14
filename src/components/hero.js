@@ -5,7 +5,7 @@ import backgroundImage2 from "../images/BG2.svg";
 
 const hero = (props) => {
   return (
-    <div className="hero  flex-center" ref={props.targetRef}>
+    <div className="hero  flex-center" ref={props.navRef}>
       <div className="container grid">
         <div className="flex-column gap">
           <h1 className="xl">Become A Trivia Master</h1>
@@ -19,8 +19,8 @@ const hero = (props) => {
           <svg
             className="svg"
             width="590"
-            height="537"
-            viewBox="0 0 690 637"
+            height="637"
+            viewBox="0 0 650 637"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >

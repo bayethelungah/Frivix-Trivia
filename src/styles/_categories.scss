@@ -1,0 +1,36 @@
+.categories {
+  height: 100vh;
+  background: url(../images/categorie.svg);
+  overflow: visible;
+  .container {
+    height: 100vh;
+    overflow: visible;
+  }
+  img {
+    position: absolute;
+    top: 1400px;
+    z-index: -200;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.507);
+    border-radius: 37px;
+    width: 250px;
+    height: 265px;
+  }
+  .flex {
+    justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+  }
+  h1 {
+    color: white;
+  }
+
+  .card1 {
+    transform: translateY(20%);
+  }
+  .card3 {
+    transform: translateY(-20%);
+  }
+}

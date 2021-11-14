@@ -130,7 +130,17 @@ li {
 }
 
 .card {
-  background-color: white;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  transition: 400ms;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .btn:hover {
@@ -162,11 +172,8 @@ li {
   grid-template-columns: repeat(2, 1fr);
 }
 
-section {
-  height: 100vh;
-}
 .scrolled {
-  background-color: white;
+  background: rgba(255, 255, 255, 0.856) !important;
   color: black;
   box-shadow: rgb(153, 153, 153) 0 2px 15px 0;
   .btn-light {

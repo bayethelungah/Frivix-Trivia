@@ -1,0 +1,90 @@
+.features {
+  overflow: visible;
+
+  .container {
+    overflow: visible;
+  }
+  h1 {
+    color: black;
+    align-self: center;
+    justify-self: center;
+  }
+  .grid {
+    grid-template-areas:
+      "svg text1"
+      "svg text2";
+    column-gap: 120px;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    overflow: visible;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #svg {
+    grid-area: svg;
+  }
+
+  #card1 {
+    grid-area: text1;
+  }
+  #card2 {
+    grid-area: text2;
+  }
+
+  svg {
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+  #Body {
+    fill: $Primary-color;
+  }
+
+  #Head {
+    fill: $Primary-color;
+  }
+
+  .card {
+    opacity: 0;
+    border-radius: 30px;
+    position: relative;
+    overflow: visible;
+    width: 300px;
+    text-align: center;
+    z-index: -101;
+  }
+
+  #line {
+    opacity: 0;
+  }
+  #solo-bg {
+    opacity: 0;
+  }
+  #solo-border {
+    opacity: 0;
+  }
+  #multi-bg {
+    opacity: 0;
+  }
+  #multi-border {
+    opacity: 0;
+  }
+
+  .card * {
+    margin: 10px 0;
+  }
+
+  // .card ::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   background: $Secondary-color;
+  //   z-index: -100;
+  // }
+}
