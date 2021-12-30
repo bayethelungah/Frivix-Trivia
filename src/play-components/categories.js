@@ -57,7 +57,7 @@ const Categories = () => {
         </div>
       )}
 
-      {chosen && <CategoryPlay chosenId={chosenId} />}
+      {chosen && <CategoryPlay chosenId={chosenId} setChosen={setChosen} />}
     </>
   );
 };
