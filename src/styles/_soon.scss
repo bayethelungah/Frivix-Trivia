@@ -1,0 +1,19 @@
+.soon {
+  color: black;
+
+  .flex {
+    gap: 200px;
+    overflow: visible;
+  }
+
+  .flex-column {
+    justify-content: start;
+    align-items: start;
+    width: 350px;
+    gap: 20px;
+  }
+
+  .container {
+    overflow: visible;
+  }
+}

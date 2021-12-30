@@ -1,12 +1,17 @@
 .hero {
   height: 100vh;
   width: 100vw;
+  color: black;
   h1 {
     font-weight: 2900;
   }
 
   p {
-    color: rgb(218, 218, 218);
+    color: rgb(165, 165, 165);
+  }
+
+  .flex-column {
+    gap: 30px;
   }
 
   .gap {
@@ -15,7 +20,6 @@
   }
 
   .btn {
-    width: 40%;
     align-self: flex-start;
   }
 

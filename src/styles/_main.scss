@@ -1,0 +1,36 @@
+.main {
+  height: 100vh;
+
+  p {
+    color: rgb(97, 97, 97);
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  #customize {
+    grid-column: 1 / span 2;
+  }
+
+  .card {
+    text-align: center;
+    gap: 10px;
+    border-radius: 20px;
+    height: 300px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .quick-play {
+    h2 {
+      color: $Secondary-color;
+    }
+
+    .card {
+      width: 700px;
+    }
+  }
+}

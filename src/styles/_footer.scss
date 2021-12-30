@@ -1,0 +1,27 @@
+footer {
+  background-color: #ecebff;
+  padding: 30px;
+
+  p {
+    font-size: 0.7rem;
+    margin: 5px 0;
+
+    &:hover {
+      color: $Secondary-color;
+      cursor: pointer;
+    }
+  }
+
+  .container {
+    height: 400px;
+  }
+
+  .flex {
+    gap: 200px;
+  }
+
+  .flex-space {
+    width: 100%;
+    margin-top: 150px;
+  }
+}

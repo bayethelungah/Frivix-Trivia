@@ -3,10 +3,18 @@
   justify-content: center;
   align-items: center;
   background: transparent;
-  height: 60px;
+  height: 90px;
   width: 100%;
   z-index: 100;
   transition: ease-in 300ms;
+  color: black !important;
+  * {
+    overflow: visible;
+  }
+
+  svg {
+    transition: 400ms;
+  }
 
   .container {
     width: 1200px;
@@ -16,14 +24,71 @@
   }
   a {
     font-size: 18px;
-    font-weight: bolder;
+    font-weight: 900;
+    // position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-  .btn {
+  .btn,
+  .btn-outline {
     border-radius: 20px;
     padding: 10px 20px;
   }
 
+  .card {
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+
+  ul :nth-child(2) {
+    // position: relative;
+  }
+
+  #categories::after {
+    content: url("../images/marker.svg");
+    position: absolute;
+    right: -22px;
+    bottom: 0;
+  }
+
   img {
     margin-top: 20px;
+  }
+
+  .categorie-drop {
+    position: absolute;
+    top: 70px;
+    left: 800px;
+  }
+
+  .categorie-drop::before {
+    content: url("../images/categorieDrop.svg");
+    position: relative;
+    right: 20px;
+    top: -50px;
+
+    height: 5px;
+    width: 5px;
+  }
+
+  .scrolled {
+    .categorie-drop {
+      position: absolute;
+      top: 60px;
+      left: 800px;
+    }
+
+    .categorie-drop::before {
+      content: url("../images/categorieDrop.svg");
+      position: relative;
+      right: 20px;
+      top: -50px;
+
+      height: 5px;
+      width: 5px;
+    }
   }
 }

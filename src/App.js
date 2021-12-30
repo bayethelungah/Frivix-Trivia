@@ -2,12 +2,14 @@ import "./styles/styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
-import Nav from "./components/Nav";
-import Hero from "./components/hero";
-import Features from "./components/features";
-import Categories from "./components/categories";
-import Login from "./components/login";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Nav from "./main-components/Nav";
+import Hero from "./main-components/hero";
+import Features from "./main-components/features";
+import Categories from "./main-components/categories";
+import Soon from "./main-components/soon";
+import Facts from "./main-components/facts";
+import Mobile from "./main-components/mobile";
+import Footer from "./main-components/footer.js";
 
 import { useRef, useMemo, useEffect } from "react";
 
@@ -16,7 +18,8 @@ function App() {
   console.log(darkmode);
   const navRef = useRef(null);
   const featuresRef = useRef(null);
-  const observeRef = useRef(null);
+  const categoriesRef = useRef(null);
+  const soonRef = useRef(null);
 
   const navCallBack = (entries) => {
     const [entry] = entries;
@@ -36,51 +39,15 @@ function App() {
     };
   }, []);
 
-  const featuresCallBack = (entries) => {
-    const [entry] = entries;
-    if (entry.isIntersecting) {
-      document.querySelector("#card1").style.animation = "slideRight 300ms";
-      document.querySelector("#card2").style.animation = "slideRight 500ms";
-      document.querySelector("#card1").style.opacity = 1;
-      document.querySelector("#card2").style.opacity = 1;
-
-      document.getElementById("line").style.animation = "slideLeft 500ms";
-      document.getElementById("line").style.opacity = 1;
-
-      document.getElementById("solo-bg").style.animation = "fadeIn 500ms";
-      document.getElementById("solo-border").style.animation = "fadeIn 300ms";
-      document.getElementById("multi-bg").style.animation = "fadeIn 300ms";
-      document.getElementById("multi-border").style.animation = "fadeIn 500ms";
-
-      document.getElementById("solo-bg").style.opacity = 1;
-      document.getElementById("solo-border").style.opacity = 1;
-      document.getElementById("multi-bg").style.opacity = 1;
-      document.getElementById("multi-border").style.opacity = 1;
-    }
-  };
-
-  const featuresOptions = useMemo(() => {
-    return {
-      root: null,
-      rootMargin: "-200px",
-      threshold: 0.3,
-    };
-  }, []);
-
   useEffect(() => {
     const navObserver = new IntersectionObserver(navCallBack, navOptions);
     const navTarget = navRef.current;
+
     if (navTarget) navObserver.observe(navTarget);
 
-    const featuresObserver = new IntersectionObserver(
-      featuresCallBack,
-      featuresOptions
-    );
-    const featuresTarget = featuresRef.current;
-
-    if (featuresTarget) featuresObserver.observe(featuresTarget);
     return () => {
       if (navTarget) navObserver.unobserve(navTarget);
+      // if (soonTarget) soonObserver.unobserve(soonTarget);
     };
   }, [navRef, navOptions]);
 
@@ -89,7 +56,11 @@ function App() {
       <Nav />
       <Hero navRef={navRef} />
       <Features featuresRef={featuresRef} />
-      <Categories />
+      <Facts />
+      <Soon soonRef={soonRef} />
+      <Mobile />
+      <Categories categoriesRef={categoriesRef} />
+      <Footer />
     </div>
   );
 }

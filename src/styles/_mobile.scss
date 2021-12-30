@@ -1,0 +1,24 @@
+.mobile {
+  height: 100vh;
+
+  * {
+    overflow: visible;
+  }
+  input {
+    &::placeholder {
+      color: white;
+    }
+  }
+
+  h1 {
+    color: $Secondary-color;
+  }
+
+  .container {
+    gap: 70px;
+  }
+
+  svg path {
+    transition: ease;
+  }
+}

@@ -1,0 +1,18 @@
+.facts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .flex-column {
+    justify-content: start;
+    align-items: start;
+    width: 350px;
+    gap: 20px;
+  }
+
+  .flex {
+    gap: 200px;
+    overflow: visible;
+  }
+}

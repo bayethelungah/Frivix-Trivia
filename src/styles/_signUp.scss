@@ -1,0 +1,47 @@
+.signUp {
+  height: 100vh;
+  color: black;
+
+  h1 {
+    font-weight: 100;
+    margin-bottom: 30px;
+  }
+  .container {
+    height: 100vh;
+  }
+
+  input {
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: 10px;
+    font-size: 20px;
+    outline: $Primary-color;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  .card {
+    padding: 60px;
+    border-radius: 30px;
+    width: 300px;
+
+    &:hover {
+      transform: none;
+    }
+  }
+  .flex {
+    justify-content: space-between;
+  }
+  .flex-column {
+    gap: 15px;
+  }
+
+  p {
+    margin-top: 10px;
+    color: $Primary-color;
+  }
+}

@@ -4,8 +4,13 @@
 }
 
 body {
-  font-family: Montserrat;
+  font-family: Open Sans;
   color: $text-color;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: Dosis;
 }
 
 .hero * :not(.bg-1, .bg-2, .container :nth-child(2), .svg-container *) {
@@ -26,7 +31,7 @@ a,
 li {
   text-decoration: none;
   list-style: none;
-  transition: 300ms;
+  transition: 400ms;
   scale: 1;
 }
 
@@ -127,6 +132,15 @@ li {
   color: white;
   background-color: $Secondary-color;
   transition: 300ms;
+
+  &:hover {
+    background-color: darken($color: $Secondary-color, $amount: 20);
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .card {
@@ -137,30 +151,29 @@ li {
   padding: 20px;
   margin: 10px;
   transition: 400ms;
+
+  &:hover {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.568);
+  }
 }
 
-.card:hover {
-  transform: scale(1.05);
-}
-
-.btn:hover {
-  background-color: darken($color: $Secondary-color, $amount: 20);
-  cursor: pointer;
-}
-.btn-light:hover {
-  background-color: darken($color: white, $amount: 30);
-  color: rgb(0, 0, 0);
-}
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-light {
+.btn-outline {
   padding: 15px;
   border-radius: 15px;
-  color: rgb(0, 0, 0);
+  color: $Secondary-color;
   background-color: white;
   transition: 300ms;
+  border: solid $Secondary-color 1px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color: $Secondary-color, $amount: 30);
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .text-center {
@@ -176,7 +189,21 @@ li {
   background: rgba(255, 255, 255, 0.856) !important;
   color: black;
   box-shadow: rgb(153, 153, 153) 0 2px 15px 0;
-  .btn-light {
-    border: 2px solid black;
+  height: 60px !important;
+}
+
+.rise {
+  transition: 300ms;
+  transform: translateY(50%);
+}
+
+.back {
+  top: 150px;
+  left: 150px;
+  position: absolute;
+  color: blue;
+
+  &:hover {
+    cursor: pointer;
   }
 }

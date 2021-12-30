@@ -1,36 +1,78 @@
 .categories {
   height: 100vh;
-  background: url(../images/categorie.svg);
   overflow: visible;
+  position: relative;
+
+  h1 {
+    color: black;
+  }
+
+  button {
+    font-family: "Dosis";
+    height: 50px;
+    width: 90px;
+    border-radius: 30px;
+    font-size: 1rem;
+  }
+
+  .card {
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px grey;
+    border: none;
+    margin: 2px;
+    outline: none;
+    width: 300px;
+    font-family: "Dosis";
+    font-size: 1rem;
+
+    &::placeholder {
+      color: black;
+      font-family: "Dosis";
+    }
+
+    &:focus {
+      color: black;
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 15px grey;
+    }
+  }
+
   .container {
     height: 100vh;
     overflow: visible;
   }
-  img {
-    position: absolute;
-    top: 1400px;
-    z-index: -200;
-  }
 
-  .card {
-    background: rgba(255, 255, 255, 0.507);
-    border-radius: 37px;
-    width: 250px;
-    height: 265px;
-  }
   .flex {
     justify-content: space-between;
     align-content: space-between;
     width: 100%;
   }
-  h1 {
-    color: white;
+
+  .flex-column {
+    gap: 5px;
+    position: relative;
   }
 
-  .card1 {
-    transform: translateY(20%);
+  .flex-space {
+    width: 100%;
+    margin-bottom: 40px;
   }
-  .card3 {
-    transform: translateY(-20%);
+
+  .categorie {
+    justify-content: start;
+    width: 333.33px;
+
+    * {
+      align-self: start;
+    }
+  }
+
+  #play-now {
+    position: absolute;
+    color: white;
+    top: 60px;
+    left: 36%;
   }
 }
