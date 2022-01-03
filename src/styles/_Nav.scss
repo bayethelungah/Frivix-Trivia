@@ -43,10 +43,6 @@
     left: 0;
   }
 
-  ul :nth-child(2) {
-    // position: relative;
-  }
-
   #categories::after {
     content: url("../images/marker.svg");
     position: absolute;
