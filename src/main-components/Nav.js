@@ -66,6 +66,7 @@ const Nav = (props) => {
           <li>
             <Link to="/about">About</Link>
           </li>
+
           <li>
             <Link to="/login" className="btn-outline">
               Login

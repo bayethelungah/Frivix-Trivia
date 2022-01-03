@@ -527,8 +527,8 @@ li {
 .scrolled {
   background: rgba(255, 255, 255, 0.856) !important;
   color: black;
-  -webkit-box-shadow: #999999 0 2px 15px 0;
-          box-shadow: #999999 0 2px 15px 0;
+  -webkit-box-shadow: #999999 0 1px 10px 0;
+          box-shadow: #999999 0 1px 10px 0;
   height: 60px !important;
 }
 
@@ -548,6 +548,10 @@ li {
 
 .back:hover {
   cursor: pointer;
+}
+
+.height {
+  height: 100vh;
 }
 
 .nav {
@@ -992,110 +996,73 @@ footer .flex-space {
   width: 700px;
 }
 
-.login {
-  height: 100vh;
-  color: black;
+.login input {
+  border: none;
+  border-bottom: solid 1px gray;
+  width: 250px;
+  font-size: 1.3rem;
+  font-family: Open Sans;
+  outline: none;
 }
 
 .login h1 {
-  font-weight: 100;
-  margin-bottom: 30px;
+  font-size: 2.2rem;
+  padding-top: 20px;
 }
 
-.login .container {
-  height: 100vh;
+.login a {
+  color: #6c63ff;
 }
 
-.login input {
-  width: 100%;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin: 10px;
-  font-size: 20px;
-  outline: #80bcc9;
-}
-
-.login .btn {
-  padding: 10px 20px;
-}
-
-.login .card {
-  padding: 60px;
-  border-radius: 30px;
-}
-
-.login .card:hover {
-  -webkit-transform: none;
-          transform: none;
-}
-
-.login .flex {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.login .flex-column {
-  gap: 15px;
+.login a:hover {
+  cursor: pointer;
 }
 
 .login p {
-  margin-top: 10px;
-  color: #80bcc9;
+  font-size: 0.8rem;
 }
 
-.signUp {
-  height: 100vh;
-  color: black;
+.login .flex-column {
+  gap: 40px;
 }
 
-.signUp h1 {
-  font-weight: 100;
-  margin-bottom: 30px;
-}
-
-.signUp .container {
-  height: 100vh;
+.login .card {
+  border-radius: 60px;
+  padding: 50px;
 }
 
 .signUp input {
-  width: 100%;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin: 10px;
-  font-size: 20px;
-  outline: #80bcc9;
+  border: none;
+  border-bottom: solid 1px gray;
+  width: 250px;
+  font-size: 1.3rem;
+  font-family: Open Sans;
+  outline: none;
 }
 
-.signUp .btn {
-  padding: 10px 20px;
+.signUp h1 {
+  font-size: 2.2rem;
+  padding-top: 20px;
 }
 
-.signUp .card {
-  padding: 60px;
-  border-radius: 30px;
-  width: 300px;
+.signUp a {
+  color: #6c63ff;
 }
 
-.signUp .card:hover {
-  -webkit-transform: none;
-          transform: none;
-}
-
-.signUp .flex {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.signUp .flex-column {
-  gap: 15px;
+.signUp a:hover {
+  cursor: pointer;
 }
 
 .signUp p {
-  margin-top: 10px;
-  color: #80bcc9;
+  font-size: 0.8rem;
+}
+
+.signUp .flex-column {
+  gap: 40px;
+}
+
+.signUp .card {
+  border-radius: 80px;
+  padding: 50px 90px;
 }
 /*# sourceMappingURL=styles.css.map */
