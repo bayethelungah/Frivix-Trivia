@@ -188,7 +188,7 @@ li {
 .scrolled {
   background: rgba(255, 255, 255, 0.856) !important;
   color: black;
-  box-shadow: rgb(153, 153, 153) 0 2px 15px 0;
+  box-shadow: rgb(153, 153, 153) 0 1px 10px 0;
   height: 60px !important;
 }
 
@@ -206,4 +206,8 @@ li {
   &:hover {
     cursor: pointer;
   }
+}
+
+.height {
+  height: 100vh;
 }
