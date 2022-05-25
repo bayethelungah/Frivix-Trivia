@@ -5,8 +5,6 @@ import { useNavigate } from "react-router";
 import { useForm } from "./hooks/useForm";
 import { AuthContext } from "./context/authContext";
 
-import Swal from "sweetalert2";
-
 const Login = () => {
   const [errors, setErrors] = useState([]);
 

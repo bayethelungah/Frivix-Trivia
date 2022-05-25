@@ -23,12 +23,12 @@ ReactDOM.render(
         <AuthProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<App />} exact />
-              <Route path="/about" element={<About />} exact />
-              <Route path="/play" element={<Play />} exact />
-              <Route path="/login" element={<Login />} exact />
-              <Route path="/signup" element={<SignUp />} exact />
-              <Route path="settings" element={<Settings />} exact />
+              <Route path="/" element={<App />} exact="true" />
+              <Route path="/about" element={<About />} exact="true" />
+              <Route path="/play" element={<Play />} exact="true" />
+              <Route path="/login" element={<Login />} exact="true" />
+              <Route path="/signup" element={<SignUp />} exact="true" />
+              <Route path="settings" element={<Settings />} exact="true" />
             </Routes>
           </BrowserRouter>
         </AuthProvider>
