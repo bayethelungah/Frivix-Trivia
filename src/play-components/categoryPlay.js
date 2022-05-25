@@ -57,7 +57,7 @@ const CategoryPlay = (props) => {
                 {data[whichQuestion].question
                   .replace(/&quot;/g, '"')
                   .replace(/&#039;/g, "'")
-                  .replace(/&Eacute;/, "É")}
+                  .replace(/&eacute;/, "É")}
               </h1>
               {data[whichQuestion].type === "boolean" && (
                 <Boolean
