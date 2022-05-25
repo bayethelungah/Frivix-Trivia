@@ -1,7 +1,5 @@
 import "./styles/styles.css";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "./state/index";
+
 import Nav from "./main-components/Nav";
 import Hero from "./main-components/hero";
 import Features from "./main-components/features";
@@ -14,8 +12,6 @@ import Footer from "./main-components/footer.js";
 import { useRef, useMemo, useEffect } from "react";
 
 function App() {
-  const darkmode = useSelector((state) => state.darkMode);
-  console.log(darkmode);
   const navRef = useRef(null);
   const featuresRef = useRef(null);
   const categoriesRef = useRef(null);

@@ -1,8 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../state/index";
 
 const Multiple = (props) => {
   const {
@@ -41,10 +38,6 @@ const Multiple = (props) => {
       setIsFinished(true);
     }
   }
-
-  const answeredCorrectly = useSelector((state) => state.answeredCorrectly);
-  const dispatch = useDispatch();
-  const { setAnsweredCorrectly } = bindActionCreators(actionCreators, dispatch);
 
   return (
     <div className="multiple flex gap text-center">

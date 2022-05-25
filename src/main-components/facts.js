@@ -3,6 +3,7 @@ import img from "../images/facts.svg";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const Facts = () => {
   const { ref, inView } = useInView({
@@ -27,6 +28,9 @@ const Facts = () => {
       });
     }
   }, [inView]);
+
+  let navigate = useNavigate();
+
   return (
     <section className="facts">
       <div ref={ref} className="container flex">
@@ -36,7 +40,14 @@ const Facts = () => {
             Learn new interesting facts about politics, music, sports and many
             more.
           </p>
-          <button className="btn-outline">Learn More</button>
+          <button
+            onClick={() => {
+              navigate("/about");
+            }}
+            className="btn-outline"
+          >
+            Learn More
+          </button>
         </motion.div>
         <img src={img}></img>
       </div>

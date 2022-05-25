@@ -1,7 +1,4 @@
 import React from "react";
-import music from "../images/music-notes.jpeg";
-import sport from "../images/lebron.jpeg";
-import art from "../images/art.jpg";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";

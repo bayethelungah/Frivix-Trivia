@@ -1,0 +1,49 @@
+.about {
+  height: 100vh;
+
+  p {
+    font-family: "Dosis";
+    color: $Secondary-color;
+  }
+
+  form {
+    gap: 5px;
+
+    input {
+      border-radius: 30px;
+      box-shadow: 0px 2px 10px grey;
+      border: none;
+      margin: 2px;
+      outline: none;
+      width: 300px;
+      font-family: "Dosis";
+      font-size: 1rem;
+      padding: 10px;
+      transition: 300ms;
+
+      &::placeholder {
+        color: black;
+        font-family: "Dosis";
+      }
+
+      &:focus {
+        color: black;
+      }
+
+      &:hover {
+        box-shadow: 0px 2px 15px grey;
+      }
+
+      &:nth-child(3) {
+        height: 40px;
+      }
+    }
+  }
+  .answers {
+    width: 325px;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+}

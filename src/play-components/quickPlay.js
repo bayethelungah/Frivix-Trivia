@@ -1,25 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Multiple from "./multiple";
 import Boolean from "./boolean";
 import Finished from "./finished";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../state/index";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 const QuickPlay = (props) => {
-  const answeredCorrectly = useSelector((state) => state.answeredCorrectly);
-  const dispatch = useDispatch();
   const [whichQuestion, setWhichQuestion] = useState(0);
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
   let { setPlay, setMain } = props;
-
-  const { setAnsweredCorrectly } = bindActionCreators(actionCreators, dispatch);
 
   let { isLoading, error, data } = useQuery("questions", () =>
     axios

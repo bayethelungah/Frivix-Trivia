@@ -1,12 +1,52 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useMutation, gql } from "@apollo/client";
+import { useNavigate } from "react-router";
+import { useForm } from "./hooks/useForm";
+import { AuthContext } from "./context/authContext";
 
-const login = () => {
+import Swal from "sweetalert2";
+
+const Login = () => {
+  const [errors, setErrors] = useState([]);
+
+  let navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
+  const LOGIN_MUTATION = gql`
+    mutation LoginUser($loginInput: LoginInput) {
+      loginUser(loginInput: $loginInput) {
+        email
+        token
+        fullName
+        username
+      }
+    }
+  `;
+
+  const loginUserCallBack = () => {
+    loginUser();
+  };
+
+  const { onChange, onSubmit, values } = useForm(loginUserCallBack);
+
+  const [loginUser, { loading }] = useMutation(LOGIN_MUTATION, {
+    update(proxy, { data: { loginUser: userData } }) {
+      login(userData);
+      navigate("/play");
+    },
+
+    onError({ graphQLErrors }) {
+      setErrors(graphQLErrors);
+    },
+
+    variables: { loginInput: values },
+  });
+
   return (
     <section className="login">
       <div className="container flex-column height">
         <svg
-          onClick={<Link to="/" exact></Link>}
           width="85"
           height="29"
           viewBox="0 0 85 29"
@@ -22,20 +62,43 @@ const login = () => {
             fill="black"
           />
         </svg>
-        <div className="card flex-column">
-          <h1>Login</h1>
-          <form className="flex-column">
-            <input placeholder="Username" />
-            <input placeholder="Password" type="password" />
-            <p>
-              Don't have an account? <Link to="/signup">Create an account</Link>
-            </p>
-            <buttton className="btn">Log In</buttton>
-          </form>
-        </div>
+        {!loading && (
+          <>
+            <div className="card flex-column">
+              <h1>Login</h1>
+              <form className="flex-column">
+                <input
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  onChange={onChange}
+                />
+                <input
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  onChange={onChange}
+                />
+                <p>
+                  Don't have an account?{" "}
+                  <Link to="/signup">Create an account</Link>
+                </p>
+                <buttton id="login" className="btn" onClick={onSubmit}>
+                  Log In
+                </buttton>
+              </form>
+              {errors && <h1>{errors}</h1>}
+            </div>
+          </>
+        )}
+        {loading && (
+          <>
+            <h1>Loading...</h1>
+          </>
+        )}
       </div>
     </section>
   );
 };
 
-export default login;
+export default Login;

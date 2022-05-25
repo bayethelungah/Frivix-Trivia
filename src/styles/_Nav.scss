@@ -8,6 +8,8 @@
   z-index: 100;
   transition: ease-in 300ms;
   color: black !important;
+  font-family: "Dosis";
+
   * {
     overflow: visible;
   }
@@ -37,21 +39,21 @@
     padding: 10px 20px;
   }
 
-  .card {
-    position: absolute;
-    top: 15px;
-    left: 0;
-  }
-
-  #categories::after {
-    content: url("../images/marker.svg");
-    position: absolute;
-    right: -22px;
-    bottom: 0;
-  }
-
   img {
     margin-top: 20px;
+  }
+
+  .nav-hover {
+    position: relative;
+  }
+
+  .nav-hover::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    background-color: red;
   }
 
   .categorie-drop {

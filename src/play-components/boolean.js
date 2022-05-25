@@ -1,8 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../state/index";
 
 const Boolean = (props) => {
   let {
@@ -14,10 +11,6 @@ const Boolean = (props) => {
     setIsFinished,
   } = props;
   const [isCorrect, setIsCorrect] = useState(null);
-
-  const answeredCorrectly = useSelector((state) => state.answeredCorrectly);
-  const dispatch = useDispatch();
-  const { setAnsweredCorrectly } = bindActionCreators(actionCreators, dispatch);
 
   function handleClickTrue() {
     if (correctAnswer === "True") {

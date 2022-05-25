@@ -14,8 +14,6 @@ export const Main = () => {
   const [showCategories, setShowCategories] = useState(false);
   const [customize, setCustomize] = useState(false);
 
-  console.log(questionType);
-
   return (
     <section className="main">
       <div className="container flex">
@@ -162,8 +160,12 @@ export const Main = () => {
         <AnimatePresence>
           {quickPlay && <QuickPlay setPlay={setPlay} setMain={setMain} />}
         </AnimatePresence>
-        {showCategories && <Categories />}
-        {customize && <Customize />}
+        {showCategories && (
+          <Categories setShowCategories={setShowCategories} setMain={setMain} />
+        )}
+        {customize && (
+          <Customize setMain={setMain} setCustomize={setCustomize} />
+        )}
       </div>
     </section>
   );

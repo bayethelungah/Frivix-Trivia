@@ -3,12 +3,15 @@ import React from "react";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router";
 
 const Features = (props) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
   const animation = useAnimation();
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (inView) {
@@ -37,7 +40,14 @@ const Features = (props) => {
           <motion.p>
             Invite and play against your friends and see who's smarter.
           </motion.p>
-          <motion.button className="btn-outline">Learn More</motion.button>
+          <motion.button
+            onClick={() => {
+              navigate("/about");
+            }}
+            className="btn-outline"
+          >
+            Learn More
+          </motion.button>
         </motion.div>
       </div>
     </section>

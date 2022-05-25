@@ -3,6 +3,7 @@ import img from "../images/soon-img.svg";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router";
 
 const Soon = (props) => {
   const { ref, inView } = useInView({
@@ -28,6 +29,8 @@ const Soon = (props) => {
     }
   }, [inView]);
 
+  const navigate = useNavigate();
+
   return (
     <section className="soon my-3" ref={props.soonRef}>
       <div ref={ref} className="container flex">
@@ -35,7 +38,14 @@ const Soon = (props) => {
         <motion.div animate={animation} className="flex-column">
           <h1 className="lg">Problem Solving</h1>
           <p>Tackle thousands of different questions and grow smarter.</p>
-          <button className="btn-outline">Learn More</button>
+          <button
+            onClick={() => {
+              navigate("/about");
+            }}
+            className="btn-outline"
+          >
+            Learn More
+          </button>
         </motion.div>
       </div>
     </section>

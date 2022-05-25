@@ -75,4 +75,27 @@
     top: 60px;
     left: 36%;
   }
+
+  .categorie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    a {
+      font-size: 20px;
+    }
+  }
+
+  .categorie-card {
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px grey;
+    border: none;
+    margin: 2px;
+    outline: none;
+    width: auto;
+    height: auto;
+    font-family: "Dosis";
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }

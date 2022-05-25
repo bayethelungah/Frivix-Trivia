@@ -1,32 +1,45 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../state";
-import { store } from "../state/store";
+
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import CategorieDrop from "./categorieDrop";
+import { useState, useEffect } from "react";
+
+import { useQuery, gql } from "@apollo/client";
+import { AuthContext } from "../context/authContext";
+import { useContext } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const Nav = (props) => {
-  const dispatch = useDispatch();
-  const [categorieDrop, setCategorieDropDown] = useState(false);
+  const [categorieDrop, setCategorieDrop] = useState(false);
+  const [userInfoDrop, setUserInfoDrop] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
 
-  const { setDarkMode, setCategorieDrop } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
 
-  // if (categorieDrop) {
-  //   setCategorieDrop(false);
-  // } else {
-  //   setCategorieDrop(false);
-  // }
-  setCategorieDrop(categorieDrop);
+  const { user, logout } = useContext(AuthContext);
 
-  console.log(store.getState());
-  function handleClick() {}
+  const onLogout = () => {
+    logout();
+  };
 
-  // 239 116 // 250 170
+  let navigate = useNavigate();
+
+  const USER_DATA_QUERY = gql`
+    query GetUserInfo($email: String!) {
+      getUserInfo(email: $email) {
+        fullName
+        username
+        email
+      }
+    }
+  `;
+
+  useEffect(() => {
+    setUsername(localStorage.getItem("username"));
+    setFullName(localStorage.getItem("fullName"));
+  }, [user]);
+
   return (
     <nav className="nav flex" ref={props.targetRef}>
       <div class="container flex-space ">
@@ -50,33 +63,114 @@ const Nav = (props) => {
           </svg>
         </Link>
         <ul className="flex gap">
-          <li>
-            <Link to="/play">Play</Link>
+          <li className="nav-hover">
+            <Link style={{ color: "black" }} to="/play">
+              Play
+            </Link>
           </li>
           <li>
-            <a
+            <Link
+              style={{ color: "black" }}
+              to="/play"
+              className="nav-hover"
               id="categories"
-              onMouseEnter={() => setCategorieDropDown(true)}
-              onMouseLeave={() => setCategorieDropDown(false)}
             >
               Categories
-              {categorieDrop && <CategorieDrop />}
-            </a>
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link className="nav-hover" style={{ color: "black" }} to="/about">
+              About
+            </Link>
           </li>
+          {!user && (
+            <>
+              <li>
+                <Link to="/login" className="btn-outline">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/signup" className="btn">
+                  Sign Up
+                </Link>
+              </li>
+            </>
+          )}
+          {user && (
+            <>
+              <motion.li
+                whileHover={{
+                  cursor: "pointer",
+                  borderRadius: "5px",
+                }}
+                onClick={() => setUserInfoDrop(!userInfoDrop)}
+                className="account-drop flex"
+              >
+                <p>{username}</p>
+                <motion.svg
+                  width="10"
+                  height="9"
+                  viewBox="0 0 10 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 9L9.33013 0H0.669873L5 9Z" fill="#6C63FF" />
+                </motion.svg>
+              </motion.li>
+              {userInfoDrop && (
+                <div className="user-info flex-column card">
+                  <svg
+                    width="39"
+                    height="47"
+                    viewBox="0 0 19 27"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.75461 0.000434938C8.70089 0.000723326 7.69043 0.394428 6.94533 1.095C6.20024 1.79557 5.78153 2.74567 5.78122 3.73643V5.43362H3.97618C3.454 5.43321 2.93686 5.52963 2.45435 5.71733C1.97185 5.90504 1.53345 6.18037 1.16422 6.52756C0.794998 6.87473 0.502206 7.28697 0.302595 7.74064C0.102985 8.19434 0.000475699 8.68059 0.000932214 9.17157V12.9062H5.78028V16.3006H3.97525C2.92123 16.3005 1.91032 16.694 1.16484 17.3946C0.419366 18.0952 0.000368188 19.0455 0 20.0366V26.4911H3.97711C4.49879 26.4909 5.01529 26.3941 5.49717 26.206C5.97902 26.0181 6.41677 25.7428 6.78546 25.3957C7.15413 25.0487 7.44648 24.6368 7.64583 24.1834C7.84516 23.7301 7.94759 23.2444 7.94725 22.7539H7.95235V20.2881L7.94171 20.2894V4.57958L7.9505 4.58154V3.73708C7.95141 3.2868 8.14173 2.85513 8.47991 2.53631C8.81806 2.21748 9.27664 2.03739 9.75554 2.03532H16.6584V3.73708C16.657 4.18716 16.466 4.61837 16.1273 4.93641C15.7886 5.25446 15.3298 5.43347 14.8511 5.43427H8.7674V7.47133H14.8501C15.9039 7.47139 16.9144 7.07788 17.6596 6.37737C18.4047 5.67687 18.8234 4.72675 18.8235 3.736V0L9.75461 0.000434938ZM5.78122 10.869H2.16975V9.17177C2.17054 8.72097 2.36108 8.28878 2.69975 7.96966C3.0384 7.65055 3.49765 7.47044 3.97711 7.46872H5.78215L5.78122 10.869ZM5.78122 22.7558C5.78042 23.2058 5.59005 23.6373 5.25177 23.9556C4.91348 24.2741 4.45482 24.4536 3.97618 24.4547H2.16882V20.0377C2.16926 19.5873 2.35989 19.1556 2.6988 18.8373C3.03773 18.519 3.49717 18.3403 3.97618 18.3405H5.78122V22.7558ZM8.7674 12.906H13.3263V14.605C13.3245 15.055 13.1334 15.486 12.7948 15.804C12.4562 16.122 11.9975 16.3011 11.5189 16.3021H8.7674V18.3405H11.5198C12.0417 18.3408 12.5585 18.2443 13.0407 18.0566C13.5229 17.869 13.9611 17.5938 14.3301 17.2468C14.6991 16.8999 14.9918 16.4879 15.1913 16.0345C15.3909 15.5812 15.4935 15.0952 15.4932 14.6045H15.4951V10.8685H8.7674V12.906Z"
+                      fill="#6C63FF"
+                    />
+                  </svg>
 
-          <li>
-            <Link to="/login" className="btn-outline">
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to="/signup" className="btn">
-              Sign Up
-            </Link>
-          </li>
+                  <h1 className="md">{fullName}</h1>
+                  <h2 className="sm">{user.email}</h2>
+                  <div className="line" />
+                  <motion.div
+                    whileHover={{ cursor: "pointer", color: "#6C63FF" }}
+                    className="flex gap"
+                    onClick={() => {
+                      navigate("/settings");
+                    }}
+                  >
+                    <i class="fa-solid fa-gear"></i>
+                    <a>Settings</a>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ cursor: "pointer", color: "#6C63FF" }}
+                    className="flex gap"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <a>Favorites</a>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ cursor: "pointer", color: "#6C63FF" }}
+                    className="flex gap"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <a>Favorites</a>
+                  </motion.div>
+                </div>
+              )}
+              <motion.li
+                whileHover={{ backgroundColor: "transparent", color: "black" }}
+              >
+                <a className="btn" onClick={onLogout}>
+                  Logout
+                </a>
+              </motion.li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
