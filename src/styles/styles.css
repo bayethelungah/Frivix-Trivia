@@ -1005,6 +1005,10 @@ footer p:hover {
   cursor: pointer;
 }
 
+footer img:hover {
+  cursor: pointer;
+}
+
 footer .container {
   height: 400px;
 }

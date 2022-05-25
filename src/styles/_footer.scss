@@ -12,6 +12,12 @@ footer {
     }
   }
 
+  img {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .container {
     height: 400px;
   }
