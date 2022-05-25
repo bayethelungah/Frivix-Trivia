@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "./context/authContext";
 import { useQuery, gql } from "@apollo/client";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const Settings = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const { user } = useContext(AuthContext);
+  let navigate = useNavigate();
 
   const USER_DATA_QUERY = gql`
     query GetUserInfo($email: String!) {
@@ -16,8 +19,6 @@ const Settings = () => {
       }
     }
   `;
-
-  console.log(user);
 
   useEffect(() => {
     if (user) {
@@ -66,6 +67,25 @@ const Settings = () => {
             <h1>Loading...</h1>
           </>
         )}
+        <motion.div
+          onClick={() => {
+            navigate("/");
+          }}
+          onHover={{ cursor: "pointer" }}
+          style={{ gap: "10px" }}
+          className="back flex"
+        >
+          <svg
+            width="9"
+            height="10"
+            viewBox="0 0 9 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8 1L2 5.27723L8 9" stroke="#6C63FF" stroke-width="2" />
+          </svg>
+          <p>Back</p>
+        </motion.div>
       </div>
     </section>
   );
