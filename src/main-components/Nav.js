@@ -3,16 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { useQuery, gql } from "@apollo/client";
 import { AuthContext } from "../context/authContext";
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
 
 const Nav = (props) => {
-  const [categorieDrop, setCategorieDrop] = useState(false);
   const [userInfoDrop, setUserInfoDrop] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
 
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -24,16 +21,6 @@ const Nav = (props) => {
   };
 
   let navigate = useNavigate();
-
-  const USER_DATA_QUERY = gql`
-    query GetUserInfo($email: String!) {
-      getUserInfo(email: $email) {
-        fullName
-        username
-        email
-      }
-    }
-  `;
 
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
@@ -144,30 +131,30 @@ const Nav = (props) => {
                     }}
                   >
                     <i class="fa-solid fa-gear"></i>
-                    <a>Settings</a>
+                    <btn>Settings</btn>
                   </motion.div>
                   <motion.div
                     whileHover={{ cursor: "pointer", color: "#6C63FF" }}
                     className="flex gap"
                   >
                     <i class="fa-solid fa-star"></i>
-                    <a>Favorites</a>
+                    <btn>Favorites</btn>
                   </motion.div>
                   <motion.div
                     whileHover={{ cursor: "pointer", color: "#6C63FF" }}
                     className="flex gap"
                   >
                     <i class="fa-solid fa-star"></i>
-                    <a>Favorites</a>
+                    <btn>Favorites</btn>
                   </motion.div>
                 </div>
               )}
               <motion.li
                 whileHover={{ backgroundColor: "transparent", color: "black" }}
               >
-                <a className="btn" onClick={onLogout}>
+                <btn className="btn" onClick={onLogout}>
                   Logout
-                </a>
+                </btn>
               </motion.li>
             </>
           )}

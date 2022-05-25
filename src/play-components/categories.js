@@ -37,14 +37,12 @@ const Categories = ({
   };
 
   const handleCheck = () => {
-    console.log("Working");
     if (number !== undefined) {
       setCategoryPlay(false);
     } else {
       setCategoryPlay(true);
     }
   };
-
   return (
     <>
       {!chosen && (
@@ -52,8 +50,6 @@ const Categories = ({
           <motion.div
             onClick={() => {
               handleBack();
-
-              console.log("hello");
             }}
             onHover={{ cursor: "pointer" }}
             style={{ gap: "10px" }}
@@ -68,7 +64,7 @@ const Categories = ({
             >
               <path d="M8 1L2 5.27723L8 9" stroke="#6C63FF" stroke-width="2" />
             </svg>
-            <a>Back</a>
+            <p>Back</p>
           </motion.div>
           <div className="categories flex-column ">
             <div className="flex-column">
