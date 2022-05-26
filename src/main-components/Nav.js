@@ -56,18 +56,18 @@ const Nav = (props) => {
             </Link>
           </li>
           <li>
-            <Link
-              style={{ color: "black" }}
-              to="/play"
-              className="nav-hover"
-              id="categories"
-            >
-              Categories
+            <Link className="nav-hover" style={{ color: "black" }} to="/about">
+              About
             </Link>
           </li>
           <li>
-            <Link className="nav-hover" style={{ color: "black" }} to="/about">
-              About
+            <Link
+              style={{ color: "black" }}
+              className="nav-hover"
+              id="categories"
+              to="/settings"
+            >
+              Settings
             </Link>
           </li>
           {!user && (
