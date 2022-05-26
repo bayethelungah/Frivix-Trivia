@@ -138,6 +138,7 @@ li {
   color: white;
   background-color: $Secondary-color;
   transition: 300ms;
+  margin: 2px;
 
   &:hover {
     background-color: darken($color: $Secondary-color, $amount: 20);
@@ -170,6 +171,7 @@ li {
   background-color: white;
   transition: 300ms;
   border: solid $Secondary-color 1px;
+  margin: 2px;
 
   &:hover {
     cursor: pointer;

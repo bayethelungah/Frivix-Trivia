@@ -474,6 +474,7 @@ li {
   background-color: #6c63ff;
   -webkit-transition: 300ms;
   transition: 300ms;
+  margin: 2px;
 }
 
 .btn:hover {
@@ -511,6 +512,7 @@ li {
   -webkit-transition: 300ms;
   transition: 300ms;
   border: solid #6c63ff 1px;
+  margin: 2px;
 }
 
 .btn-outline:hover {
@@ -1196,9 +1198,5 @@ footer .flex-space {
 
 .about .card {
   border-radius: 20px;
-}
-
-.avatar .container {
-  height: 100vh;
 }
 /*# sourceMappingURL=styles.css.map */

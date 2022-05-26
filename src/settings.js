@@ -3,6 +3,7 @@ import { AuthContext } from "./context/authContext";
 import { useQuery, gql } from "@apollo/client";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Settings = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,7 +30,7 @@ const Settings = () => {
   });
 
   const { data, loading, error } = useQuery(USER_DATA_QUERY, {
-    variables: { email: user.email },
+    variables: { email: user?.email },
   });
 
   return (
@@ -39,7 +40,14 @@ const Settings = () => {
           <>
             <div className="flex-col">
               <h1>You Are Not Logged In</h1>
-              <button className="btn">Click Here to Sign In</button>
+              <div className="flex">
+                <Link to="/login" className="btn-outline">
+                  Log In
+                </Link>
+                <Link to="/signup" className="btn-outline">
+                  Create Account
+                </Link>
+              </div>
             </div>
           </>
         )}
